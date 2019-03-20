@@ -147,8 +147,8 @@ int main(void)
     
     MS5611_Calculate(&T[0], &P[0], C1, D1, D2);
     
-    D1 = MS5611_cmd_adc(2, CMD_ADC_D1+CMD_ADC_4096);     // read uncompensated pressure 
-    D2 = MS5611_cmd_adc(2, CMD_ADC_D2+CMD_ADC_4096);    // read uncompensated temperature
+   D1 = MS5611_cmd_adc(2, CMD_ADC_D1+CMD_ADC_4096);     // read uncompensated pressure 
+   D2 = MS5611_cmd_adc(2, CMD_ADC_D2+CMD_ADC_4096);    // read uncompensated temperature
     
     MS5611_Calculate(&T[1], &P[1], C2, D1, D2);
     

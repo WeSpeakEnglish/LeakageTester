@@ -34,7 +34,7 @@ void MS5611_init(uint8_t SensNumb) //init the sensor - first number is 1
 {
 MS5611_SS_Set(SensNumb,0);
 
-  HAL_Delay(1);
+  HAL_Delay(10);
   b = CMD_RESET;
   HAL_SPI_Transmit(&hspi2, &b, 1, 1000);
 
@@ -62,7 +62,8 @@ uint32_t MS5611_cmd_adc(uint8_t SensNumb, uint8_t cmd)
   uint8_t ret; 
   static uint32_t temp=0; 
   static uint8_t CMD = 0x00;
-  
+
+  HAL_Delay(10);
   MS5611_SS_Set(SensNumb,0);                                 // pull CSB low       
   spi_send(CMD_ADC_CONV+cmd);                     // send conversion command    
  
@@ -136,7 +137,8 @@ uint16_t  MS5611_cmd_prom(uint8_t SensNumb,uint8_t coef_num)
  static uint8_t ret;
   static unsigned int rC=0; 
   static uint8_t CMD = 0x00;
-  
+
+  HAL_Delay(10);
   MS5611_SS_Set(SensNumb,0);
   
   HAL_Delay(100);//       pull       CSB       low  
